@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Rick et Morty API</title>
+        <link rel="stylesheet" type="text/css" href="./style.css" media="all" />
+    </head>
+
+    <body>
+        <div id="demo">
+            <pre>{{requestReturn}}</pre>
+            <button @click="request">Send</button>
+        </div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            const apiURLCharacter = 'https://rickandmortyapi.com/api/character'
+
+            const demo = new Vue({
+                el: '#demo',
+                data: {
+                    personnage: [],
+                    requestReturn: [],
+                },
+                methods: {
+                    request: function() {
+                        axios.get(apiURLCharacter)
+					        .then((response) => {
+					            this.requestReturn = response.data.results
+					        })
+					        .catch((error) => {
+					            console.log(error);
+					        })
+                    },
+                }
+            })
+        </script>
+    </body>
+</html>
