@@ -10,12 +10,12 @@
 
     <body>
         <div id="demo">
-            <input v-model="research" placeholder="tapez votre recherche">
             <select v-model="selected">
                 <option disabled value="">Choisissez</option>
                 <option>Personnages</option>
                 <option>Episodes</option>
             </select>
+            <input v-model="research" placeholder="tapez votre recherche">
             <button @click="request">Send</button>
             <div> 
                 <ul v-if="selected === 'Personnages'">
