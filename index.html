@@ -29,13 +29,14 @@
                     </li>
                 </ul>
                 <ul v-if="selected === 'Episodes'">
-                    <li v-for="perso in personnages"  class="container">
+                    <li v-for="episode in episodes"  class="container">
                         <video controls width="auto">
-                            <source type="video/webm" :src=perso.image>
-                            <source type="video/mp4" :src=perso.image>
+                            <source type="video/webm" :src=episode.url>
+                            <source type="video/mp4" :src=episode.url>
                         </video>
                         <div>
-                            <p>Nom : {{perso.name}}</p>
+                            <p>Titre : {{episode.name}}</p>
+                            <p>{{episode.episode}}</p>
                         </div>
                     </li>
                 </ul>
@@ -45,7 +46,7 @@
 
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        
+       
         <script>
             const apiURL = 'https://rickandmortyapi.com/api/'
 
@@ -53,6 +54,7 @@
                 el: '#demo',
                 data: {
                     personnages: [],
+                    episodes: [],
                     requestReturn: [],
                     research: "",
                     selected: "",
@@ -70,7 +72,7 @@
                         } else if (this.selected == "Episodes") {
                             axios.get(apiURL + "episode/?episode=" + this.research)
                                 .then((response) => {
-                                    this.personnages = response.data.results
+                                    this.episodes = response.data.results
                                 })
                                 .catch((error) => {
                                     console.log(error);
