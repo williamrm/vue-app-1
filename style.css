@@ -19,3 +19,7 @@ ul {
     grid-template-columns: 1fr 3fr;
     margin-top: 2%;
 }
+
+#text {
+    margin-left: 2%;
+}

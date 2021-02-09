@@ -21,7 +21,7 @@
                 <ul v-if="selected === 'Personnages'">
                     <li v-for="perso in personnages"  class="container">
                         <img :src=perso.image>
-                        <div>
+                        <div id="text">
                             <p>Nom : {{perso.name}}</p>
                             <p>Status : {{perso.status}}</p>
                             <p>Espèce : {{perso.species}}</p>
@@ -34,7 +34,7 @@
                             <source type="video/webm" :src=episode.url>
                             <source type="video/mp4" :src=episode.url>
                         </video>
-                        <div>
+                        <div id="text">
                             <p>Titre : {{episode.name}}</p>
                             <p>{{episode.episode}}</p>
                         </div>
